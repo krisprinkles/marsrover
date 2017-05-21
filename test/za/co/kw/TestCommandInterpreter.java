@@ -45,4 +45,10 @@ public class TestCommandInterpreter
         CommandInterpreter ci = new CommandInterpreter(commandList);
         assertEquals(ci.commandList.indexOf(" "), -1);
     }
+
+    @Test
+    public void testFailWhenCommandIsNull() throws Exception {
+        CommandInterpreter ci = new CommandInterpreter(null);
+        assertFalse(ci.isValidCommand());
+    }
 }
