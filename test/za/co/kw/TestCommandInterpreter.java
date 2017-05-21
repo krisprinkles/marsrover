@@ -23,4 +23,12 @@ public class TestCommandInterpreter
         CommandInterpreter ci = new CommandInterpreter(commandList);
         assertTrue(ci.isValidCommand());
     }
+
+    @Test
+    public void testFailForInvalidCommandList() throws Exception {
+        String commandList = "MRLJMMMRRPLJ";
+        CommandInterpreter cp = new CommandInterpreter(commandList);
+        assertFalse(cp.isValidCommand());
+
+    }
 }
