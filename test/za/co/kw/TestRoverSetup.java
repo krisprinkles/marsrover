@@ -38,4 +38,16 @@ public class TestRoverSetup
         exception.expect(CardinalPointException.class);
         Rover r = new Rover(horizontalBoundary, verticalBoundary, horizontalStart, verticalStart, startingOrientation);
     }
+
+    @Test
+    public void testItFailsWhenGivenStartingCoordsOutsideTerritoryLimits() throws Exception
+    {
+        int horizontalBoundary = 5;
+        int verticalBoundary = 5;
+        int horizontalStart = 5;
+        int verticalStart = 6;
+        char startingOrientation = 'S';
+        exception.expect(Exception.class);
+        Rover r = new Rover(horizontalBoundary, verticalBoundary, horizontalStart, verticalStart, startingOrientation);
+    }
 }

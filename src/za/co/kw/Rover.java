@@ -23,6 +23,8 @@ public class Rover
         this.verticalBoundary = verticalBoundary;
     }
 
+    // The following exceptions will be thrown when invalid setup information is passed in:
+    // 1. CardinalPointException: the cardinal point privided is not in (N, E, S, E)
     public Rover(int horizontalBoundary, int verticalBoundary, int verticalStartPosition, int horizontalStartPosition, char orientation) throws CardinalPointException
     {
         this.horizontalBoundary = horizontalBoundary;
@@ -65,6 +67,7 @@ public class Rover
         int newVerticalPosition = verticalPosition + orientations[orientationIndex].getVerticalMoveAmount();
         int newHorizontalPosition = horizontalPosition = horizontalPosition + orientations[orientationIndex].getHorizontalMoveAmount();
 
+        // Specific check for each boundary was added in order to provide detailed feedback messages.
         if (newVerticalPosition < 0)
         {
             throw new TerritoryBoundaryException("Reached the Southern Boundary");
