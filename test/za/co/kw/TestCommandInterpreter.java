@@ -12,42 +12,53 @@ import static org.junit.Assert.assertTrue;
 public class TestCommandInterpreter
 {
     @Test
-    public void testFailForEmptyCommandList() throws Exception {
-        String commandList = "";
-        CommandInterpreter cp = new CommandInterpreter(commandList);
+    public void testFailForEmptyCommandList() throws Exception
+    {
+        String             commandList = "";
+        CommandInterpreter cp          = new CommandInterpreter(commandList);
         assertFalse(cp.isValidCommand());
     }
 
+
     @Test
-    public void testPassForValidCommandList() throws Exception {
-        String commandList = "MMLMRMMRRMML";
-        CommandInterpreter ci = new CommandInterpreter(commandList);
+    public void testPassForValidCommandList() throws Exception
+    {
+        String             commandList = "MMLMRMMRRMML";
+        CommandInterpreter ci          = new CommandInterpreter(commandList);
         assertTrue(ci.isValidCommand());
     }
 
+
     @Test
-    public void testFailForInvalidCommandList() throws Exception {
-        String commandList = "MRLJMMMRRPLJ";
-        CommandInterpreter cp = new CommandInterpreter(commandList);
+    public void testFailForInvalidCommandList() throws Exception
+    {
+        String             commandList = "MRLJMMMRRPLJ";
+        CommandInterpreter cp          = new CommandInterpreter(commandList);
         assertFalse(cp.isValidCommand());
     }
 
+
     @Test
-    public void testFailForSpecialCharactersInCommandList() throws Exception {
-        String commandList = "asf*&//<!KLRM";
-        CommandInterpreter ci = new CommandInterpreter(commandList);
+    public void testFailForSpecialCharactersInCommandList() throws Exception
+    {
+        String             commandList = "asf*&//<!KLRM";
+        CommandInterpreter ci          = new CommandInterpreter(commandList);
         assertFalse(ci.isValidCommand());
     }
 
+
     @Test
-    public void testScrubbedCommandListContainsNoWhiteSpace() throws Exception {
-        String commandList = "MJKURRR GHIS SFD ";
-        CommandInterpreter ci = new CommandInterpreter(commandList);
+    public void testScrubbedCommandListContainsNoWhiteSpace() throws Exception
+    {
+        String             commandList = "MJKURRR GHIS SFD ";
+        CommandInterpreter ci          = new CommandInterpreter(commandList);
         assertEquals(ci.commandList.indexOf(" "), -1);
     }
 
+
     @Test
-    public void testFailWhenCommandIsNull() throws Exception {
+    public void testFailWhenCommandIsNull() throws Exception
+    {
         CommandInterpreter ci = new CommandInterpreter(null);
         assertFalse(ci.isValidCommand());
     }

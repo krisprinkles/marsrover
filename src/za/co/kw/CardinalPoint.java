@@ -16,70 +16,43 @@ public enum CardinalPoint
     WEST('W', -1, 0);
 
     private char orientation;
-    private int horizontalMoveAmount;
-    private int verticalMoveAmount;
+    private int  horizontalMoveAmount;
+    private int  verticalMoveAmount;
 
     private static Map<Character, CardinalPoint> enumOrientationMap = new HashMap<Character, CardinalPoint>();
-    static {
+
+    static
+    {
         for (CardinalPoint cp : CardinalPoint.values())
         {
             enumOrientationMap.put(cp.orientation, cp);
         }
     }
 
-    CardinalPoint(char orientation, int horizontalMoveAmount, int verticalMoveAmount) {
+    CardinalPoint(char orientation, int horizontalMoveAmount, int verticalMoveAmount)
+    {
         this.orientation = orientation;
         this.horizontalMoveAmount = horizontalMoveAmount;
         this.verticalMoveAmount = verticalMoveAmount;
     }
 
-    public char getOrientation() {
+
+    public char getOrientation()
+    {
         return orientation;
     }
 
-    public int getVerticalMoveAmount() {
+
+    public int getVerticalMoveAmount()
+    {
         return verticalMoveAmount;
     }
 
-    public int getHorizontalMoveAmount() {
+
+    public int getHorizontalMoveAmount()
+    {
         return horizontalMoveAmount;
     }
-
-
-/*
-    private static Map<String, RechargeLogStatus>  enumInternalErrorMap = new HashMap<String, RechargeLogStatus>();
-    private static Map<Integer, RechargeLogStatus> enumIdMap            = new HashMap<Integer, RechargeLogStatus>();
-
-    static
-    {
-        for (RechargeLogStatus rls : RechargeLogStatus.values())
-        {
-            enumInternalErrorMap.put(rls.internalErrorCode, rls);
-        }
-    }
-
-
-    static
-    {
-        for (RechargeLogStatus rls : RechargeLogStatus.values())
-        {
-            enumIdMap.put(rls.id, rls);
-        }
-    }
-
-    public static RechargeLogStatus lookupByInternalErrorCode(String internalErrorCode)
-    {
-        if (enumInternalErrorMap.get(internalErrorCode) == null)
-        {
-            logger.error(
-                    String.format("Unmapped RechargeLogStatus encountered: internalErrorCode: %s", internalErrorCode));
-            return RechargeLogStatus.UNMAPPED_STATUS;
-        } else
-        {
-            return enumInternalErrorMap.get(internalErrorCode);
-        }
-    }
-*/
 
 
     public static CardinalPoint lookupByOrientation(char orientation) throws CardinalPointException

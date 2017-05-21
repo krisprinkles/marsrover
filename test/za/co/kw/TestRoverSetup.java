@@ -25,7 +25,7 @@ public class TestRoverSetup
         int verticalStart = 2;
         char startingOrientation = 'E';
         Rover r = new Rover(horizontalBoundary, verticalBoundary, horizontalStart, verticalStart, startingOrientation);
-        assertEquals(r.reportPosition(), "2 1 E");
+        assertEquals(r.reportPosition(), "1 2 E");
     }
 
     @Test
