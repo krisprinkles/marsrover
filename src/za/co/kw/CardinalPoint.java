@@ -1,5 +1,7 @@
 package za.co.kw;
 
+import za.co.kw.exception.CardinalPointException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -80,8 +82,15 @@ public enum CardinalPoint
 */
 
 
-    public static CardinalPoint lookupByOrientation(char orientation)
+    public static CardinalPoint lookupByOrientation(char orientation) throws CardinalPointException
     {
-        return enumOrientationMap.get(orientation);
+        if (enumOrientationMap.get(orientation) != null)
+        {
+            return enumOrientationMap.get(orientation);
+        } else
+        {
+            throw new CardinalPointException(orientation + " is an invalid orientation");
+        }
+
     }
 }

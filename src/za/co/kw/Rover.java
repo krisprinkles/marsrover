@@ -1,5 +1,6 @@
 package za.co.kw;
 
+import za.co.kw.exception.CardinalPointException;
 import za.co.kw.exception.TerritoryBoundaryException;
 
 import java.util.Arrays;
@@ -22,7 +23,7 @@ public class Rover
         this.verticalBoundary = verticalBoundary;
     }
 
-    public Rover(int horizontalBoundary, int verticalBoundary, int verticalStartPosition, int horizontalStartPosition, char orientation)
+    public Rover(int horizontalBoundary, int verticalBoundary, int verticalStartPosition, int horizontalStartPosition, char orientation) throws CardinalPointException
     {
         this.horizontalBoundary = horizontalBoundary;
         this.verticalBoundary = verticalBoundary;

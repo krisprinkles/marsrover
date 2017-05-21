@@ -37,6 +37,5 @@ public class TestRoverSetup
         char startingOrientation = 'K';
         exception.expect(CardinalPointException.class);
         Rover r = new Rover(horizontalBoundary, verticalBoundary, horizontalStart, verticalStart, startingOrientation);
-        assertEquals(r.reportPosition(), "2 1 E");
     }
 }
