@@ -33,4 +33,13 @@ public class CommandInterpreter
         return scrubbed;
     }
 
+    public void setCommandList(String commandList)
+    {
+        this.commandList = commandList;
+    }
+
+    public String getCommand()
+    {
+        return commandList;
+    }
 }

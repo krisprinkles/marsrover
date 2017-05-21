@@ -1,6 +1,7 @@
 package za.co.kw;
 
 import org.junit.Test;
+import za.co.kw.exception.CardinalPointException;
 import za.co.kw.exception.TerritoryBoundaryException;
 
 import static org.junit.Assert.assertTrue;
@@ -12,7 +13,7 @@ public class TestTurning
 {
 
     @Test
-    public void testNewRoverFacesNorth() throws TerritoryBoundaryException
+    public void testNewRoverFacesNorth() throws TerritoryBoundaryException, CardinalPointException
     {
         Rover r = new Rover(6,7);
         assertTrue(Character.toUpperCase(r.getDirection()) == 'N');
@@ -56,7 +57,7 @@ public class TestTurning
     }
 
     @Test
-    public void testNewRoverFacesWestAfterSingleLeftTurn() throws TerritoryBoundaryException
+    public void testNewRoverFacesWestAfterSingleLeftTurn() throws TerritoryBoundaryException, CardinalPointException
     {
         Rover r = new Rover(3,3);
         r.turnLeft();
@@ -64,7 +65,7 @@ public class TestTurning
     }
 
     @Test
-    public void testNewRoverFacesSouthAfterTwoLeftTurns() throws TerritoryBoundaryException
+    public void testNewRoverFacesSouthAfterTwoLeftTurns() throws TerritoryBoundaryException, CardinalPointException
     {
         Rover r = new Rover(2,2);
         r.turnLeft();
@@ -73,7 +74,7 @@ public class TestTurning
     }
 
     @Test
-    public void testNewRoverFacesEastAfterThreeLeftTurns() throws TerritoryBoundaryException
+    public void testNewRoverFacesEastAfterThreeLeftTurns() throws TerritoryBoundaryException, CardinalPointException
     {
         Rover r = new Rover(4,4);
         r.turnLeft();
@@ -83,7 +84,7 @@ public class TestTurning
     }
 
     @Test
-    public void testNewRoverFacesNorthAfterFourLeftTurns() throws TerritoryBoundaryException
+    public void testNewRoverFacesNorthAfterFourLeftTurns() throws TerritoryBoundaryException, CardinalPointException
     {
         Rover r = new Rover(6,6);
         r.turnLeft();

@@ -16,22 +16,23 @@ public class Rover
     int verticalPosition = 0;
     int horizontalBoundary = 0;
     int verticalBoundary = 0;
+    CommandInterpreter commandInterpreter = null;
 
-    public Rover(int horizontalBoundary, int verticalBoundary) throws TerritoryBoundaryException
+    public Rover(int horizontalBoundary, int verticalBoundary) throws TerritoryBoundaryException, CardinalPointException
     {
-        if(horizontalBoundary < 0 || verticalBoundary < 0)
-        {
-            throw new TerritoryBoundaryException("Territory Boundary co-ordinates cannot be negative values");
-        }
-        this.horizontalBoundary = horizontalBoundary;
-        this.verticalBoundary = verticalBoundary;
+        this(horizontalBoundary, verticalBoundary, 0, 0, 'N');
     }
 
     // The following exceptions will be thrown when invalid setup information is passed in:
-    // 1. CardinalPointException: the cardinal point provided is not in (N, E, S, E)
-    // 2. TerritoryBoundaryException: the starting position provided is outside the specified territory boundary.
+    // 1. CardinalPointException:       The cardinal point provided is not in (N, E, S, E)
+    // 2. TerritoryBoundaryException:   The starting position provided is outside the specified territory boundary.
+    //                                  Also, when territory boundary co-ordinates are negative.
     public Rover(int horizontalBoundary, int verticalBoundary, int verticalStartPosition, int horizontalStartPosition, char orientation) throws CardinalPointException, TerritoryBoundaryException
     {
+        if (horizontalBoundary < 0 || verticalBoundary < 0)
+        {
+            throw new TerritoryBoundaryException("Territory Boundary co-ordinates cannot be negative values");
+        }
         this.horizontalBoundary = horizontalBoundary;
         this.verticalBoundary = verticalBoundary;
 
@@ -105,6 +106,14 @@ public class Rover
     public String reportPosition()
     {
         return new String(horizontalPosition + " " + verticalPosition + " " + orientations[orientationIndex].getOrientation());
+    }
+
+    public void executeSingleCommand(String command) throws TerritoryBoundaryException
+    {
+        if (command == "M")
+        {
+            move();
+        }
     }
 
 
