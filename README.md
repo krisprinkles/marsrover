@@ -34,4 +34,5 @@ Building with something like gradle or the like is left as an exercise to the re
 2. Check project settings and make sure that the Project SDK is Java 1.8.
 3. I have included all the additional libraries in the `/marsrover/lib/` directory
 4. The Main method is located in `marsrover/src/za/co/kw/Main`
+
 *PLEASE NOTE*: Before you run it via IntelliJ, please check the run configuration and make sure that there is one program argument, the filename of the file containing the rover's instructions.
