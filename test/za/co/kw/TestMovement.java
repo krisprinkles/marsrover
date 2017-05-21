@@ -133,8 +133,8 @@ public class TestMovement
     {
         String commandList = "MMRMRMML";
         Rover r = new Rover(5,5); // constructor assumes starting position 0 0 N
-        r.setCommand(commandList);
+        r.setCommandList(commandList);
         r.executeCommandList();
-        assertEquals(r.reportPosition(), "1 0 W");
+        assertEquals(r.reportPosition(), "1 0 E");
     }
 }

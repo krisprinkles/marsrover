@@ -126,13 +126,24 @@ public class Rover
     }
 
 
-    public void setCommand(String commandList)
+    public void setCommandList(String commandList)
     {
-
+        if (commandInterpreter == null)
+        {
+            commandInterpreter = new CommandInterpreter(commandList);
+        }else
+        {
+            commandInterpreter.setCommandList(commandList);
+        }
     }
 
-    public void executeCommandList()
+    public void executeCommandList() throws TerritoryBoundaryException
     {
-
+        if (commandInterpreter != null)
+        {
+            for (char ch:commandInterpreter.getCommand().toCharArray()) {
+                executeSingleCommand(ch);
+            }
+        }
     }
 }
