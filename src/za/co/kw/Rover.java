@@ -74,4 +74,8 @@ public class Rover
     }
 
 
+    public String reportPosition()
+    {
+        return null;
+    }
 }

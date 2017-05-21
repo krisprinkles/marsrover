@@ -6,6 +6,7 @@ import org.junit.rules.ExpectedException;
 import za.co.kw.exception.TerritoryBoundaryException;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by kristien on 2017/05/21.
@@ -97,5 +98,10 @@ public class TestMovement
         r.move();
     }
 
+    @Test
+    public void testItReportsStartingPositionCorrectly() throws Exception {
+        Rover r = new Rover(5,5);
+        assertEquals(r.reportPosition(), "0 0 N");
+    }
 
 }
