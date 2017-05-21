@@ -99,7 +99,7 @@ public class TestMovement
     }
 
     @Test
-    public void testItReportsStartingPositionCorrectly() throws Exception {
+    public void testItReportsDefaultStartingPositionCorrectly() throws Exception {
         Rover r = new Rover(5,5);
         assertEquals(r.reportPosition(), "0 0 N");
     }

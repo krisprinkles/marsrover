@@ -73,9 +73,8 @@ public class Rover
         verticalPosition = newVerticalPosition;
     }
 
-
     public String reportPosition()
     {
-        return null;
+        return new String(horizontalPosition + " " + verticalPosition + " " + orientations[orientationIndex].getOrientation());
     }
 }
