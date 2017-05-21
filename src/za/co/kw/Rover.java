@@ -5,22 +5,16 @@ package za.co.kw;
  */
 public class Rover
 {
-    char direction = 'N';
+    int orientationIndex = 0;
+    char[] orientations = {'N', 'E', 'S', 'W'};
 
     public char getDirection()
     {
-        return direction;
+        return orientations[orientationIndex];
     }
 
     public void turnRight()
     {
-        if (direction == 'N')
-        {
-            direction = 'E';
-        } else if(direction == 'E') {
-            direction = 'S';
-        } else if (direction == 'S') {
-            direction = 'W';
-        }
+        orientationIndex = (orientationIndex + 1) % 4;
     }
 }
