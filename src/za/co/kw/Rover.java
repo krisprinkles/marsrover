@@ -7,6 +7,8 @@ public class Rover
 {
     int orientationIndex = 0;
     char[] orientations = {'N', 'E', 'S', 'W'};
+    int horizontalPosition = 0;
+    int verticalPosition = 0;
 
     public char getDirection()
     {
@@ -29,6 +31,6 @@ public class Rover
 
     public int[] getPosition()
     {
-        return new int[0];
+        return new int[]{horizontalPosition, verticalPosition};
     }
 }
