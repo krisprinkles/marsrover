@@ -116,6 +116,9 @@ public class Rover
         } else if (command == "R")
         {
             turnRight();
+        } else if (command == "L")
+        {
+            turnLeft();
         }
     }
 
