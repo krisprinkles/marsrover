@@ -9,7 +9,7 @@ public class CommandInterpreter
 
     public CommandInterpreter(String commandList)
     {
-        this.commandList = commandList;
+        this.commandList = scrubCommand(commandList);
     }
 
     public boolean isValidCommand()
@@ -23,4 +23,14 @@ public class CommandInterpreter
             return false;
         }
     }
+
+    public String scrubCommand(String command)
+    {
+        String scrubbed = command;
+        if(command!=null){
+            scrubbed = command.replace(" ","").toUpperCase();
+        }
+        return scrubbed;
+    }
+
 }
