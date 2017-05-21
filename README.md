@@ -33,6 +33,6 @@ Building with something like gradle or the like is left as an exercise to the re
 3. I have included all the additional libraries in the `/marsrover/lib/` directory
 4. The Main method is located in `marsrover/src/za/co/kw/Main`
 
-*PLEASE NOTE*: You will get an "Invalid VCS route mapping error". You can ignore this error; it exists because the original repository was Mercurial, and was converted to Git. It shouldn't affect the application. 
+*PLEASE NOTE*: You will get an "Invalid VCS root mapping error". You can ignore this error; it exists because the original repository was Mercurial, and was converted to Git. It shouldn't affect the application. 
 
 *PLEASE NOTE*: Before you run it via IntelliJ, please check the run configuration and make sure that there is one program argument, the filename of the file containing the rover's instructions.
