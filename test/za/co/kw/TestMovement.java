@@ -128,4 +128,13 @@ public class TestMovement
         assertEquals(r.reportPosition(), "0 0 W");
     }
 
+    @Test
+    public void testItCompletesCommandListSuccessfully() throws Exception
+    {
+        String commandList = "MMRMRMML";
+        Rover r = new Rover(5,5); // constructor assumes starting position 0 0 N
+        r.setCommand(commandList);
+        r.executeCommandList();
+        assertEquals(r.reportPosition(), "1 0 W");
+    }
 }

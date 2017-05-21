@@ -126,4 +126,13 @@ public class Rover
     }
 
 
+    public void setCommand(String commandList)
+    {
+
+    }
+
+    public void executeCommandList()
+    {
+
+    }
 }
