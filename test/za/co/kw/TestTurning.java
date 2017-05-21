@@ -43,4 +43,5 @@ public class TestTurning
         r.turnRight();
         assertTrue(Character.toUpperCase(r.getDirection()) == 'W');
     }
+
 }
