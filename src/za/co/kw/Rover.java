@@ -33,4 +33,9 @@ public class Rover
     {
         return new int[]{horizontalPosition, verticalPosition};
     }
+
+    public void move()
+    {
+
+    }
 }
