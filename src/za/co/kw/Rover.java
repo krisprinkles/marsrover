@@ -125,7 +125,6 @@ public class Rover
 
     }
 
-
     public void setCommandList(String commandList)
     {
         if (commandInterpreter == null)
