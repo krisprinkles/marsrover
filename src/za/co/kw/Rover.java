@@ -44,6 +44,8 @@ public class Rover
             horizontalPosition++;
         } else if(orientation == 'S') {
             verticalPosition--;
+        } else {
+            horizontalPosition--;
         }
     }
 
