@@ -22,4 +22,21 @@ public class TestFileReader
         RoverSetupFromFile.readBoundaryCoords(line);
     }
 
+    @Test
+    public void testItFailsForNonNumericTerritoryBoundaryCoords() throws Exception
+    {
+        String line = "5s E";
+        exception.expect(TerritoryBoundaryException.class);
+        RoverSetupFromFile.readBoundaryCoords(line);
+    }
+
+    @Test
+    public void testItFailsForNonIntegerTerritoryBoundaryCoords() throws Exception
+    {
+        String line = "5.4 3.0";
+        exception.expect(TerritoryBoundaryException.class);
+        RoverSetupFromFile.readBoundaryCoords(line);
+    }
+
+
 }
