@@ -3,6 +3,7 @@ package za.co.kw;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import za.co.kw.exception.TerritoryBoundaryException;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -65,8 +66,17 @@ public class TestMovement
         Rover r = new Rover(horizontalBoundary, verticalBoundary);
         r.turnRight();
         r.turnRight();
-        exception.expect(Exception.class);
+        exception.expect(TerritoryBoundaryException.class);
         r.move();
     }
+
+    @Test
+    public void testItStopsAtWesternBoundary() throws Exception {
+        Rover r = new Rover(6,6);
+        r.turnLeft();
+        exception.expect(TerritoryBoundaryException.class);
+        r.move();
+    }
+
 
 }
