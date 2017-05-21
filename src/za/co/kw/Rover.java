@@ -31,30 +31,6 @@ public class Rover
     }
 
 
-    public void setHorizontalPosition(int horizontalPosition)
-    {
-        this.horizontalPosition = horizontalPosition;
-    }
-
-
-    public void setVerticalPosition(int verticalPosition)
-    {
-        this.verticalPosition = verticalPosition;
-    }
-
-
-    public void setHorizontalBoundary(int horizontalBoundary)
-    {
-        this.horizontalBoundary = horizontalBoundary;
-    }
-
-
-    public void setVerticalBoundary(int verticalBoundary)
-    {
-        this.verticalBoundary = verticalBoundary;
-    }
-
-
     /**
      * @throws CardinalPointException     The cardinal point provided is not in (N, E, S, E)
      * @throws TerritoryBoundaryException The starting position provided is outside the specified territory boundary
@@ -84,6 +60,30 @@ public class Rover
 
         CardinalPoint orientationLookup = CardinalPoint.lookupByOrientation(orientation);
         orientationIndex = Arrays.asList(orientations).indexOf(orientationLookup);
+    }
+
+
+    public void setHorizontalPosition(int horizontalPosition)
+    {
+        this.horizontalPosition = horizontalPosition;
+    }
+
+
+    public void setVerticalPosition(int verticalPosition)
+    {
+        this.verticalPosition = verticalPosition;
+    }
+
+
+    public void setHorizontalBoundary(int horizontalBoundary)
+    {
+        this.horizontalBoundary = horizontalBoundary;
+    }
+
+
+    public void setVerticalBoundary(int verticalBoundary)
+    {
+        this.verticalBoundary = verticalBoundary;
     }
 
 
