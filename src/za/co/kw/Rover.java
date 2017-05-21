@@ -27,7 +27,7 @@ public class Rover
     // 1. CardinalPointException:       The cardinal point provided is not in (N, E, S, E)
     // 2. TerritoryBoundaryException:   The starting position provided is outside the specified territory boundary.
     //                                  Also, when territory boundary co-ordinates are negative.
-    public Rover(int horizontalBoundary, int verticalBoundary, int verticalStartPosition, int horizontalStartPosition, char orientation) throws CardinalPointException, TerritoryBoundaryException
+    public Rover(int horizontalBoundary, int verticalBoundary, int horizontalStartPosition, int verticalStartPosition, char orientation) throws CardinalPointException, TerritoryBoundaryException
     {
         if (horizontalBoundary < 0 || verticalBoundary < 0)
         {
@@ -144,5 +144,10 @@ public class Rover
                 executeSingleCommand(ch);
             }
         }
+    }
+
+    public String reportTerritoryBoundary()
+    {
+        return new String(horizontalBoundary + "," + verticalBoundary);
     }
 }

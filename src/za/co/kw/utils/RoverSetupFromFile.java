@@ -1,5 +1,6 @@
 package za.co.kw.utils;
 
+import za.co.kw.exception.CommandLineException;
 import za.co.kw.exception.StartingPositionException;
 import za.co.kw.exception.TerritoryBoundaryException;
 
@@ -26,5 +27,14 @@ public class RoverSetupFromFile
             throw new StartingPositionException(String.format("The starting position is invalid: %s ", line));
         }
         return line.split(" ");
+    }
+
+    public static String readCommandLine(String line) throws CommandLineException
+    {
+        if(!line.matches("[LMR]+"))
+        {
+            throw new CommandLineException(String.format("Invalid Command Line provided: %s",line));
+        }
+        return line;
     }
 }

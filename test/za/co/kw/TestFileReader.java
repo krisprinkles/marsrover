@@ -3,6 +3,7 @@ package za.co.kw;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import za.co.kw.exception.CommandLineException;
 import za.co.kw.exception.StartingPositionException;
 import za.co.kw.exception.TerritoryBoundaryException;
 import za.co.kw.utils.RoverSetupFromFile;
@@ -63,5 +64,13 @@ public class TestFileReader
         String line = "1 2 E";
         String[] resultLine = RoverSetupFromFile.readStartingPosition(line);
         assertArrayEquals(resultLine, new String[]{"1","2","E"});
+    }
+
+    @Test
+    public void testFailForInvalidCharactersInCommandLine() throws Exception
+    {
+        String line ="HJMMRLNRMM 452 4 %#";
+        exception.expect(CommandLineException.class);
+        String resultLine = RoverSetupFromFile.readCommandLine(line);
     }
 }
