@@ -14,6 +14,13 @@ public class CommandInterpreter
 
     public boolean isValidCommand()
     {
-        return true;
+        if (this.commandList != null && this.commandList.matches("[LMR]+"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
