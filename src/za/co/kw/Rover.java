@@ -37,17 +37,8 @@ public class Rover
 
     public void move()
     {
-        char orientation = orientations[orientationIndex].getOrientation();
-        if (orientation == 'N')
-        {
-            verticalPosition++;
-        } else if(orientation == 'E') {
-            horizontalPosition++;
-        } else if(orientation == 'S') {
-            verticalPosition--;
-        } else {
-            horizontalPosition--;
-        }
+        verticalPosition = verticalPosition + orientations[orientationIndex].getVerticalMoveAmount();
+        horizontalPosition = horizontalPosition + orientations[orientationIndex].getHorizontalMoveAmount();
     }
 
 
