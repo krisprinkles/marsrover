@@ -47,14 +47,18 @@ public class Rover
     public void move() throws TerritoryBoundaryException
     {
         int newVerticalPosition = verticalPosition + orientations[orientationIndex].getVerticalMoveAmount();
+        int newHorizontalPosition = horizontalPosition = horizontalPosition + orientations[orientationIndex].getHorizontalMoveAmount();
+
         if (newVerticalPosition < 0)
         {
             throw new TerritoryBoundaryException("Reached the Southern Boundary");
         }
 
-        horizontalPosition = horizontalPosition + orientations[orientationIndex].getHorizontalMoveAmount();
-
-
+        if (newHorizontalPosition < 0)
+        {
+            throw new TerritoryBoundaryException("Reached the Western Boundary");
+        }
+        horizontalPosition = newHorizontalPosition;
         verticalPosition = newVerticalPosition;
     }
 
