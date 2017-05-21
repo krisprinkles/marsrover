@@ -3,8 +3,11 @@ package za.co.kw;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import za.co.kw.exception.StartingPositionException;
 import za.co.kw.exception.TerritoryBoundaryException;
 import za.co.kw.utils.RoverSetupFromFile;
+
+import static org.junit.Assert.assertArrayEquals;
 
 /**
  * Created by kristien on 2017/05/21.
@@ -42,7 +45,23 @@ public class TestFileReader
     public void testFailsForTooManyStartingPositionCoords() throws Exception
     {
         String line ="1 2 E R S 2";
-        exception.expect(Exception.class);
+        exception.expect(StartingPositionException.class);
         RoverSetupFromFile.readStartingPosition(line);
+    }
+
+    @Test
+    public void testFailsForInvalidCharactersInStartingPosition() throws Exception
+    {
+        String line ="1 2 F";
+        exception.expect(StartingPositionException.class);
+        RoverSetupFromFile.readStartingPosition(line);
+    }
+
+    @Test
+    public void testPassForValidStartingPosition() throws Exception
+    {
+        String line = "1 2 E";
+        String[] resultLine = RoverSetupFromFile.readStartingPosition(line);
+        assertArrayEquals(resultLine, new String[]{"1","2","E"});
     }
 }

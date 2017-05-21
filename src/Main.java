@@ -1,3 +1,4 @@
+import za.co.kw.exception.StartingPositionException;
 import za.co.kw.exception.TerritoryBoundaryException;
 import za.co.kw.utils.RoverSetupFromFile;
 
@@ -18,7 +19,8 @@ public class Main
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
-            int[] boundaryArray;
+            String[] boundaryArray;
+            String[] startingPosArray;
 
             // Read the first line
             if ((line = br.readLine()) != null)
@@ -33,6 +35,18 @@ public class Main
             }
 
             // Read the second line
+            if ((line = br.readLine()) != null)
+            {
+                try
+                {
+                    startingPosArray = RoverSetupFromFile.readStartingPosition(line);
+                } catch (StartingPositionException e)
+                {
+                    System.out.println(e);
+                }
+
+            }
+
 
 
 
