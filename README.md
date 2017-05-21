@@ -28,9 +28,7 @@ Quick Run from command line (assuming it was built in IntelliJ:
 Building with something like gradle or the like is left as an exercise to the reader ;)
 
 ### Using IntelliJ IDEA
-1. Open the IDE and create a new project from version control.
-1.1. Select Mercurial
-1.2. Repository URL: `https://krisprinkles@bitbucket.org/krisprinkles/marsrover`
+1. Open the IDE and create a new project from version control. Repository URL: `https://krisprinkles@bitbucket.org/krisprinkles/marsrover`
 2. Check project settings and make sure that the Project SDK is Java 1.8.
 3. I have included all the additional libraries in the `/marsrover/lib/` directory
 4. The Main method is located in `marsrover/src/za/co/kw/Main`
