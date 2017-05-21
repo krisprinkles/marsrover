@@ -38,5 +38,11 @@ public class TestFileReader
         RoverSetupFromFile.readBoundaryCoords(line);
     }
 
-
+    @Test
+    public void testFailsForTooManyStartingPositionCoords() throws Exception
+    {
+        String line ="1 2 E R S 2";
+        exception.expect(Exception.class);
+        RoverSetupFromFile.readStartingPosition(line);
+    }
 }
