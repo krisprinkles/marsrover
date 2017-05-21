@@ -2,6 +2,8 @@ package za.co.kw;
 
 import za.co.kw.exception.TerritoryBoundaryException;
 
+import java.util.Arrays;
+
 /**
  * Created by kristien on 2017/05/21.
  */
@@ -19,6 +21,19 @@ public class Rover
         this.horizontalBoundary = horizontalBoundary;
         this.verticalBoundary = verticalBoundary;
     }
+
+    public Rover(int horizontalBoundary, int verticalBoundary, int verticalStartPosition, int horizontalStartPosition, char orientation)
+    {
+        this.horizontalBoundary = horizontalBoundary;
+        this.verticalBoundary = verticalBoundary;
+
+        this.horizontalPosition = horizontalStartPosition;
+        this.verticalPosition = verticalStartPosition;
+
+        CardinalPoint orientationLookup = CardinalPoint.lookupByOrientation(orientation);
+        orientationIndex = Arrays.asList(orientations).indexOf(orientationLookup);
+    }
+
 
     public char getDirection()
     {
@@ -77,4 +92,6 @@ public class Rover
     {
         return new String(horizontalPosition + " " + verticalPosition + " " + orientations[orientationIndex].getOrientation());
     }
+
+
 }
