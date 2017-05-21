@@ -4,6 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import za.co.kw.exception.CardinalPointException;
+import za.co.kw.exception.TerritoryBoundaryException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -47,7 +48,7 @@ public class TestRoverSetup
         int horizontalStart = 5;
         int verticalStart = 6;
         char startingOrientation = 'S';
-        exception.expect(Exception.class);
+        exception.expect(TerritoryBoundaryException.class);
         Rover r = new Rover(horizontalBoundary, verticalBoundary, horizontalStart, verticalStart, startingOrientation);
     }
 }

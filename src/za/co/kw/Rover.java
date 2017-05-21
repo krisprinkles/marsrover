@@ -24,12 +24,18 @@ public class Rover
     }
 
     // The following exceptions will be thrown when invalid setup information is passed in:
-    // 1. CardinalPointException: the cardinal point privided is not in (N, E, S, E)
-    public Rover(int horizontalBoundary, int verticalBoundary, int verticalStartPosition, int horizontalStartPosition, char orientation) throws CardinalPointException
+    // 1. CardinalPointException: the cardinal point provided is not in (N, E, S, E)
+    // 2. TerritoryBoundaryException: the starting position provided is outside the specified territory boundary.
+    public Rover(int horizontalBoundary, int verticalBoundary, int verticalStartPosition, int horizontalStartPosition, char orientation) throws CardinalPointException, TerritoryBoundaryException
     {
         this.horizontalBoundary = horizontalBoundary;
         this.verticalBoundary = verticalBoundary;
 
+        if (horizontalStartPosition >= horizontalBoundary || horizontalStartPosition < 0 || verticalStartPosition >= verticalBoundary || verticalStartPosition < 0)
+        {
+            throw new TerritoryBoundaryException(String.format("The starting position specified (%d, %d) is outside the territory boundary (%d, %d)"
+                    , horizontalStartPosition, verticalStartPosition, horizontalBoundary, verticalBoundary));
+        }
         this.horizontalPosition = horizontalStartPosition;
         this.verticalPosition = verticalStartPosition;
 
