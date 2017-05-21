@@ -8,17 +8,22 @@ import za.co.kw.exception.TerritoryBoundaryException;
 public class RoverSetupFromFile
 {
 
-    public static String readBoundaryCoords(String line) throws TerritoryBoundaryException
+    public static int[] readBoundaryCoords(String line) throws TerritoryBoundaryException
     {
         String[] territoryBoundaryCoords = line.split(" ");
+        int[] territoryBoundary = {0,0};
+
         if (territoryBoundaryCoords.length == 2)
         {
+            int counter=0;
             for (String tbc : territoryBoundaryCoords)
             {
                 if (!tbc.matches("\\d+"))
                 {
                     throw new TerritoryBoundaryException(String.format("The starting boundaries (%s) must be integers", line));
                 }
+                territoryBoundary[counter] = Integer.parseInt(tbc);
+                counter++;
             }
         } else
         {
@@ -26,6 +31,6 @@ public class RoverSetupFromFile
         }
 
         // Continue if no errors were identified
-        return line;
+        return territoryBoundary;
     }
 }
