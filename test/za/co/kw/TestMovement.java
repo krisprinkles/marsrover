@@ -41,4 +41,16 @@ public class TestMovement
         assertArrayEquals(r.getPosition(), new int[]{0,1});
     }
 
+    @Test
+    public void testItMovesWest() throws Exception {
+        Rover r = new Rover();
+        r.turnRight();
+        r.move();
+        r.move();
+        r.turnLeft();
+        r.turnLeft();
+        r.move();
+        assertArrayEquals(r.getPosition(), new int[]{1,0});
+    }
+
 }
