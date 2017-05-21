@@ -2,6 +2,7 @@ package za.co.kw;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -36,5 +37,12 @@ public class TestCommandInterpreter
         String commandList = "asf*&//<!KLRM";
         CommandInterpreter ci = new CommandInterpreter(commandList);
         assertFalse(ci.isValidCommand());
+    }
+
+    @Test
+    public void testScrubbedCommandListContainsNoWhiteSpace() throws Exception {
+        String commandList = "MJKURRR GHIS SFD ";
+        CommandInterpreter ci = new CommandInterpreter(commandList);
+        assertEquals(ci.commandList.indexOf(" "), -1);
     }
 }
