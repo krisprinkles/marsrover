@@ -14,6 +14,9 @@ public class Rover
 
     public void turnRight()
     {
-
+        if (direction == 'N')
+        {
+            direction = 'E';
+        }
     }
 }
