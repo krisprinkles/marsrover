@@ -44,4 +44,14 @@ public class TestTurning
         assertTrue(Character.toUpperCase(r.getDirection()) == 'W');
     }
 
+    @Test
+    public void testNewRoverFacesNorthAfterFourRightTurns() throws Exception {
+        Rover r = new Rover();
+        r.turnRight();
+        r.turnRight();
+        r.turnRight();
+        r.turnRight();
+        assertTrue(Character.toUpperCase(r.getDirection()) == 'N');
+    }
+
 }

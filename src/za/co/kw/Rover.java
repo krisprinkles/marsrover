@@ -13,8 +13,12 @@ public class Rover
         return orientations[orientationIndex];
     }
 
+    // Orientations is a circular array, traverse it clockwise using mod 4 (set contains 4 element)
+    // The array index starts at 0, therefore adjust orientationIndex with 1.
     public void turnRight()
     {
         orientationIndex = (orientationIndex + 1) % 4;
     }
+
+
 }
