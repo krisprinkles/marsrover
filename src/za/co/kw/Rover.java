@@ -40,8 +40,10 @@ public class Rover
         if (orientation == 'N')
         {
             verticalPosition++;
-        } else {
+        } else if(orientation == 'E') {
             horizontalPosition++;
+        } else if(orientation == 'S') {
+            verticalPosition--;
         }
     }
 
