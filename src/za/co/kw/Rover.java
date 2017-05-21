@@ -6,13 +6,14 @@ package za.co.kw;
 public class Rover
 {
     int orientationIndex = 0;
-    char[] orientations = {'N', 'E', 'S', 'W'};
+
+    CardinalPoint[] orientations = {CardinalPoint.NORTH, CardinalPoint.EAST, CardinalPoint.SOUTH, CardinalPoint.WEST};
     int horizontalPosition = 0;
     int verticalPosition = 0;
 
     public char getDirection()
     {
-        return orientations[orientationIndex];
+        return orientations[orientationIndex].getOrientation();
     }
 
     // Orientations is a circular array, traverse it clockwise using mod 4 (set contains 4 element)
@@ -36,7 +37,7 @@ public class Rover
 
     public void move()
     {
-        char orientation = orientations[orientationIndex];
+        char orientation = orientations[orientationIndex].getOrientation();
         if (orientation == 'N')
         {
             verticalPosition++;
