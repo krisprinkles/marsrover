@@ -26,4 +26,9 @@ public class Rover
     {
         orientationIndex = (orientationIndex + 3) % 4;
     }
+
+    public int[] getPosition()
+    {
+        return new int[0];
+    }
 }

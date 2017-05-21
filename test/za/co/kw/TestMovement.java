@@ -1,0 +1,17 @@
+package za.co.kw;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertArrayEquals;
+
+/**
+ * Created by kristien on 2017/05/21.
+ */
+public class TestMovement
+{
+    @Test
+    public void testItStartsAtZero() throws Exception {
+        Rover r = new Rover();
+        assertArrayEquals(r.getPosition(), new int[]{0, 0});
+    }
+}
