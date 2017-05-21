@@ -29,6 +29,12 @@ public class TestCommandInterpreter
         String commandList = "MRLJMMMRRPLJ";
         CommandInterpreter cp = new CommandInterpreter(commandList);
         assertFalse(cp.isValidCommand());
+    }
 
+    @Test
+    public void testFailForSpecialCharactersInCommandList() throws Exception {
+        String commandList = "asf*&//<!KLRM";
+        CommandInterpreter ci = new CommandInterpreter(commandList);
+        assertFalse(ci.isValidCommand());
     }
 }
