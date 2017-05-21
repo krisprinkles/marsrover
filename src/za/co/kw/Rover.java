@@ -54,7 +54,10 @@ public class Rover
             throw new TerritoryBoundaryException("Reached the Southern Boundary");
         }
 
-
+        if (newVerticalPosition >= verticalBoundary)
+        {
+            throw new TerritoryBoundaryException("Reached the Northern Boundary");
+        }
 
         if (newHorizontalPosition < 0)
         {
