@@ -106,7 +106,7 @@ public class TestMovement
 
     @Test
     public void testItMovesOnMCommand() throws Exception {
-        String command = "M";
+        char command = 'M';
         Rover r = new Rover(8,8);
         r.executeSingleCommand(command);
         assertEquals(r.reportPosition(), "0 1 N");
@@ -114,7 +114,7 @@ public class TestMovement
 
     @Test
     public void testItTurnsRightOnRCommand() throws Exception {
-        String command = "R";
+        char command = 'R';
         Rover r = new Rover(8,8);
         r.executeSingleCommand(command);
         assertEquals(r.reportPosition(), "0 0 E");
@@ -122,7 +122,7 @@ public class TestMovement
 
     @Test
     public void testItTurnsLeftOnLCommand() throws Exception {
-        String command = "L";
+        char command = 'L';
         Rover r = new Rover(8,8);
         r.executeSingleCommand(command);
         assertEquals(r.reportPosition(), "0 0 W");

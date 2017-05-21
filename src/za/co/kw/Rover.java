@@ -108,18 +108,21 @@ public class Rover
         return new String(horizontalPosition + " " + verticalPosition + " " + orientations[orientationIndex].getOrientation());
     }
 
-    public void executeSingleCommand(String command) throws TerritoryBoundaryException
+    public void executeSingleCommand(char command) throws TerritoryBoundaryException
     {
-        if (command == "M")
+        switch (command)
         {
-            move();
-        } else if (command == "R")
-        {
-            turnRight();
-        } else if (command == "L")
-        {
-            turnLeft();
+            case 'M':
+                move();
+                break;
+            case 'R':
+                turnRight();
+                break;
+            case 'L':
+                turnLeft();
+                break;
         }
+
     }
 
 
