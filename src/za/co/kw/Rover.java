@@ -36,7 +36,13 @@ public class Rover
 
     public void move()
     {
-        verticalPosition++;
+        char orientation = orientations[orientationIndex];
+        if (orientation == 'N')
+        {
+            verticalPosition++;
+        } else {
+            horizontalPosition++;
+        }
     }
 
 
