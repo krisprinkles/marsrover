@@ -17,6 +17,8 @@ public class Rover
         if (direction == 'N')
         {
             direction = 'E';
+        } else if(direction == 'E') {
+            direction = 'S';
         }
     }
 }
