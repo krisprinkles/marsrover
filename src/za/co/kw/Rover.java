@@ -17,8 +17,12 @@ public class Rover
     int horizontalBoundary = 0;
     int verticalBoundary = 0;
 
-    public Rover(int horizontalBoundary, int verticalBoundary)
+    public Rover(int horizontalBoundary, int verticalBoundary) throws TerritoryBoundaryException
     {
+        if(horizontalBoundary < 0 || verticalBoundary < 0)
+        {
+            throw new TerritoryBoundaryException("Territory Boundary co-ordinates cannot be negative values");
+        }
         this.horizontalBoundary = horizontalBoundary;
         this.verticalBoundary = verticalBoundary;
     }

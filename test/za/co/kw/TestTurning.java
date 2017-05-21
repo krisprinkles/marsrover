@@ -1,6 +1,7 @@
 package za.co.kw;
 
 import org.junit.Test;
+import za.co.kw.exception.TerritoryBoundaryException;
 
 import static org.junit.Assert.assertTrue;
 
@@ -11,7 +12,7 @@ public class TestTurning
 {
 
     @Test
-    public void testNewRoverFacesNorth()
+    public void testNewRoverFacesNorth() throws TerritoryBoundaryException
     {
         Rover r = new Rover(6,7);
         assertTrue(Character.toUpperCase(r.getDirection()) == 'N');
@@ -55,7 +56,7 @@ public class TestTurning
     }
 
     @Test
-    public void testNewRoverFacesWestAfterSingleLeftTurn()
+    public void testNewRoverFacesWestAfterSingleLeftTurn() throws TerritoryBoundaryException
     {
         Rover r = new Rover(3,3);
         r.turnLeft();
@@ -63,7 +64,7 @@ public class TestTurning
     }
 
     @Test
-    public void testNewRoverFacesSouthAfterTwoLeftTurns()
+    public void testNewRoverFacesSouthAfterTwoLeftTurns() throws TerritoryBoundaryException
     {
         Rover r = new Rover(2,2);
         r.turnLeft();
@@ -72,7 +73,7 @@ public class TestTurning
     }
 
     @Test
-    public void testNewRoverFacesEastAfterThreeLeftTurns()
+    public void testNewRoverFacesEastAfterThreeLeftTurns() throws TerritoryBoundaryException
     {
         Rover r = new Rover(4,4);
         r.turnLeft();
@@ -82,7 +83,7 @@ public class TestTurning
     }
 
     @Test
-    public void testNewRoverFacesNorthAfterFourLeftTurns()
+    public void testNewRoverFacesNorthAfterFourLeftTurns() throws TerritoryBoundaryException
     {
         Rover r = new Rover(6,6);
         r.turnLeft();

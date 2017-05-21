@@ -51,4 +51,25 @@ public class TestRoverSetup
         exception.expect(TerritoryBoundaryException.class);
         Rover r = new Rover(horizontalBoundary, verticalBoundary, horizontalStart, verticalStart, startingOrientation);
     }
+
+    @Test
+    public void testItFailsWhenNegativeBoundaryCoordsAreGiven() throws Exception
+    {
+        int horizontalBoundary = -1;
+        int verticalBoundary = -3;
+        int horizontalStart = -5;
+        int verticalStart = -6;
+        char startingOrientation = 'S';
+        exception.expect(TerritoryBoundaryException.class);
+        Rover r = new Rover(horizontalBoundary, verticalBoundary, horizontalStart, verticalStart, startingOrientation);
+    }
+
+    @Test
+    public void testItFailsWhenOnlyNegativeBoundaryCoordsAreGiven() throws Exception
+    {
+        int horizontalBoundary = -1;
+        int verticalBoundary = -3;
+        exception.expect(TerritoryBoundaryException.class);
+        Rover r = new Rover(horizontalBoundary, verticalBoundary);
+    }
 }
