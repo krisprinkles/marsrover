@@ -23,6 +23,12 @@ public class Rover
 
     public void turnLeft()
     {
-        orientationIndex = 3;
+        if (orientationIndex == 0)
+        {
+            orientationIndex = 3;
+        } else {
+            orientationIndex = 2;
+        }
+
     }
 }
