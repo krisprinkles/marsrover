@@ -36,6 +36,6 @@ public class Rover
 
     public void move()
     {
-
+        verticalPosition++;
     }
 }
