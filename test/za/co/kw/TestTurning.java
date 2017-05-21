@@ -54,4 +54,12 @@ public class TestTurning
         assertTrue(Character.toUpperCase(r.getDirection()) == 'N');
     }
 
+    @Test
+    public void testNewRoverFacesWestAfterSingleLeftTurn()
+    {
+        Rover r = new Rover();
+        r.turnLeft();
+        assertTrue(Character.toUpperCase(r.getDirection()) == 'W');
+    }
+
 }
