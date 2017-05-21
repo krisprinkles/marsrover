@@ -112,4 +112,13 @@ public class TestMovement
         assertEquals(r.reportPosition(), "0 1 N");
     }
 
+    @Test
+    public void testItTurnsRightOnRCommand() throws Exception {
+        String command = "R";
+        Rover r = new Rover(8,8);
+        r.executeSingleCommand(command);
+        assertEquals(r.reportPosition(), "0 0 E");
+    }
+
+
 }

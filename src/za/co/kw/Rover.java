@@ -113,6 +113,9 @@ public class Rover
         if (command == "M")
         {
             move();
+        } else if (command == "R")
+        {
+            turnRight();
         }
     }
 
