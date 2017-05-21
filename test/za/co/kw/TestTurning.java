@@ -17,4 +17,12 @@ public class TestTurning
         assertTrue(Character.toUpperCase(r.getDirection()) == 'N');
     }
 
+    @Test
+    public void testNewRoverFacesEastAfterSingleRightTurn() throws Exception
+    {
+        Rover r = new Rover();
+        r.turnRight();
+        assertTrue(Character.toUpperCase(r.getDirection()) == 'E');
+
+    }
 }

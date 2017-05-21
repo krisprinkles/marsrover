@@ -11,4 +11,9 @@ public class Rover
     {
         return direction;
     }
+
+    public void turnRight()
+    {
+
+    }
 }
