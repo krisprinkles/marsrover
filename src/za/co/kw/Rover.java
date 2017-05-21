@@ -1,5 +1,7 @@
 package za.co.kw;
 
+import za.co.kw.exception.TerritoryBoundaryException;
+
 /**
  * Created by kristien on 2017/05/21.
  */
@@ -42,10 +44,18 @@ public class Rover
         return new int[]{horizontalPosition, verticalPosition};
     }
 
-    public void move()
+    public void move() throws TerritoryBoundaryException
     {
-        verticalPosition = verticalPosition + orientations[orientationIndex].getVerticalMoveAmount();
+        int newVerticalPosition = verticalPosition + orientations[orientationIndex].getVerticalMoveAmount();
+        if (newVerticalPosition < 0)
+        {
+            throw new TerritoryBoundaryException("Reached the Southern Boundary");
+        }
+
         horizontalPosition = horizontalPosition + orientations[orientationIndex].getHorizontalMoveAmount();
+
+
+        verticalPosition = newVerticalPosition;
     }
 
 
