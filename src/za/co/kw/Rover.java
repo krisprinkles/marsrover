@@ -5,8 +5,10 @@ package za.co.kw;
  */
 public class Rover
 {
+    char direction = 'N';
+
     public char getDirection()
     {
-        return ' ';
+        return direction;
     }
 }
