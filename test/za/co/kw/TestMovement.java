@@ -78,5 +78,15 @@ public class TestMovement
         r.move();
     }
 
+    @Test
+    public void testItStopsAtNorthernBoundary() throws Exception {
+        Rover r = new Rover(3,3);
+        r.move();
+        r.move();
+        exception.expect(TerritoryBoundaryException.class);
+        r.move();
+    }
+
+
 
 }
