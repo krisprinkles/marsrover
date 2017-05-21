@@ -31,6 +31,9 @@ public class Rover
         } else if (orientationIndex == 2)
         {
             orientationIndex = 1;
+        } else if(orientationIndex == 1)
+        {
+            orientationIndex = 0;
         }
     }
 }
