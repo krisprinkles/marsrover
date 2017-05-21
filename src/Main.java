@@ -10,12 +10,20 @@ public class Main
 
     public static void main(String[] args)
     {
-        String   fileName         = "./test/testfiles/basic_test";
+        if (args.length != 1)
+        {
+            System.err.println("Usage: java Main <roverCommandFilename>");
+            System.exit(-5);
+        }
+
+        String fileName = args[0].trim();
 
         try
         {
             Rover rover = RoverSetupFromFile.getRoverFromFile(fileName);
 
+            // Ideally this would only output the [x, y, direction] tuple (for automated testing). But since this is
+            // just an exercise I went for less boring:
             System.out.format("Rover has been initialised for the specified territory (boundary: %s) and has moved to" +
                               " starting position: %s\n", rover.reportTerritoryBoundary(), rover.reportPosition());
             System.out.format("Rover has accepted the commands and is ready to start moving\n");
@@ -29,8 +37,6 @@ public class Main
             e.printStackTrace();
         }
     }
-
-
 
 
 }

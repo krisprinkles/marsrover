@@ -9,6 +9,7 @@ import za.co.kw.exception.TerritoryBoundaryException;
 import za.co.kw.utils.RoverSetupFromFile;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by kristien on 2017/05/21.
@@ -18,6 +19,7 @@ public class TestFileReader
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
+
     @Test
     public void testItFailsForTooManyTerritoryBoundaryCoords() throws Exception
     {
@@ -25,6 +27,7 @@ public class TestFileReader
         exception.expect(TerritoryBoundaryException.class);
         RoverSetupFromFile.readBoundaryCoords(line);
     }
+
 
     @Test
     public void testItFailsForNonNumericTerritoryBoundaryCoords() throws Exception
@@ -34,6 +37,7 @@ public class TestFileReader
         RoverSetupFromFile.readBoundaryCoords(line);
     }
 
+
     @Test
     public void testItFailsForNonIntegerTerritoryBoundaryCoords() throws Exception
     {
@@ -42,35 +46,51 @@ public class TestFileReader
         RoverSetupFromFile.readBoundaryCoords(line);
     }
 
+
     @Test
     public void testFailsForTooManyStartingPositionCoords() throws Exception
     {
-        String line ="1 2 E R S 2";
+        String line = "1 2 E R S 2";
         exception.expect(StartingPositionException.class);
         RoverSetupFromFile.readStartingPosition(line);
     }
+
 
     @Test
     public void testFailsForInvalidCharactersInStartingPosition() throws Exception
     {
-        String line ="1 2 F";
+        String line = "1 2 F";
         exception.expect(StartingPositionException.class);
         RoverSetupFromFile.readStartingPosition(line);
     }
 
+
     @Test
     public void testPassForValidStartingPosition() throws Exception
     {
-        String line = "1 2 E";
+        String   line       = "1 2 E";
         String[] resultLine = RoverSetupFromFile.readStartingPosition(line);
-        assertArrayEquals(resultLine, new String[]{"1","2","E"});
+        assertArrayEquals(resultLine, new String[]{"1", "2", "E"});
     }
+
 
     @Test
     public void testFailForInvalidCharactersInCommandLine() throws Exception
     {
-        String line ="HJMMRLNRMM 452 4 %#";
+        String line = "HJMMRLNRMM 452 4 %#";
         exception.expect(CommandLineException.class);
         String resultLine = RoverSetupFromFile.readCommandLine(line);
+    }
+
+
+    @Test
+    public void testLoadOfInstructions() throws Exception
+    {
+        String filename = "./test/testfiles/basic_test";
+        Rover rover = RoverSetupFromFile.getRoverFromFile(filename);
+
+        assertEquals(rover.getDirection(), 'E');
+        assertEquals(rover.getPosition()[0], 1);
+        assertEquals(rover.getPosition()[1], 2);
     }
 }
