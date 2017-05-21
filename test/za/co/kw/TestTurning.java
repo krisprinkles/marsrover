@@ -13,14 +13,14 @@ public class TestTurning
     @Test
     public void testNewRoverFacesNorth()
     {
-        Rover r = new Rover();
+        Rover r = new Rover(6,7);
         assertTrue(Character.toUpperCase(r.getDirection()) == 'N');
     }
 
     @Test
     public void testNewRoverFacesEastAfterSingleRightTurn() throws Exception
     {
-        Rover r = new Rover();
+        Rover r = new Rover(4,4);
         r.turnRight();
         assertTrue(Character.toUpperCase(r.getDirection()) == 'E');
     }
@@ -28,7 +28,7 @@ public class TestTurning
     @Test
     public void testNewRoverFacesSouthAfterTwoRightTurn() throws Exception
     {
-        Rover r = new Rover();
+        Rover r = new Rover(3,5);
         r.turnRight();
         r.turnRight();
         assertTrue(Character.toUpperCase(r.getDirection()) == 'S');
@@ -37,7 +37,7 @@ public class TestTurning
     @Test
     public void testNewRoverFacesWestAfterThreeRightTurn() throws Exception
     {
-        Rover r = new Rover();
+        Rover r = new Rover(6,6);
         r.turnRight();
         r.turnRight();
         r.turnRight();
@@ -46,7 +46,7 @@ public class TestTurning
 
     @Test
     public void testNewRoverFacesNorthAfterFourRightTurns() throws Exception {
-        Rover r = new Rover();
+        Rover r = new Rover(5,5);
         r.turnRight();
         r.turnRight();
         r.turnRight();
@@ -57,7 +57,7 @@ public class TestTurning
     @Test
     public void testNewRoverFacesWestAfterSingleLeftTurn()
     {
-        Rover r = new Rover();
+        Rover r = new Rover(3,3);
         r.turnLeft();
         assertTrue(Character.toUpperCase(r.getDirection()) == 'W');
     }
@@ -65,7 +65,7 @@ public class TestTurning
     @Test
     public void testNewRoverFacesSouthAfterTwoLeftTurns()
     {
-        Rover r = new Rover();
+        Rover r = new Rover(2,2);
         r.turnLeft();
         r.turnLeft();
         assertTrue(Character.toUpperCase(r.getDirection()) == 'S');
@@ -74,7 +74,7 @@ public class TestTurning
     @Test
     public void testNewRoverFacesEastAfterThreeLeftTurns()
     {
-        Rover r = new Rover();
+        Rover r = new Rover(4,4);
         r.turnLeft();
         r.turnLeft();
         r.turnLeft();
@@ -84,7 +84,7 @@ public class TestTurning
     @Test
     public void testNewRoverFacesNorthAfterFourLeftTurns()
     {
-        Rover r = new Rover();
+        Rover r = new Rover(6,6);
         r.turnLeft();
         r.turnLeft();
         r.turnLeft();

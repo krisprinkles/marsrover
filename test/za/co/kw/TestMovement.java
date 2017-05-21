@@ -1,6 +1,8 @@
 package za.co.kw;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -9,22 +11,25 @@ import static org.junit.Assert.assertArrayEquals;
  */
 public class TestMovement
 {
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
+
     @Test
     public void testItStartsAtZero() throws Exception {
-        Rover r = new Rover();
+        Rover r = new Rover(5,5);
         assertArrayEquals(r.getPosition(), new int[]{0, 0});
     }
 
     @Test
     public void testItMovesNorth() throws Exception {
-        Rover r = new Rover();
+        Rover r = new Rover(6,6);
         r.move();
         assertArrayEquals(r.getPosition(), new int[]{0, 1});
     }
 
     @Test
     public void testItMovesEast() throws Exception {
-        Rover r = new Rover();
+        Rover r = new Rover(3,3);
         r.turnRight();
         r.move();
         assertArrayEquals(r.getPosition(), new int[]{1, 0});
@@ -32,7 +37,7 @@ public class TestMovement
 
     @Test
     public void testItMovesSouth() throws Exception {
-        Rover r = new Rover();
+        Rover r = new Rover(6,6);
         r.move();
         r.move();
         r.turnRight();
@@ -43,7 +48,7 @@ public class TestMovement
 
     @Test
     public void testItMovesWest() throws Exception {
-        Rover r = new Rover();
+        Rover r = new Rover(4,4);
         r.turnRight();
         r.move();
         r.move();
@@ -51,6 +56,17 @@ public class TestMovement
         r.turnLeft();
         r.move();
         assertArrayEquals(r.getPosition(), new int[]{1,0});
+    }
+
+    @Test
+    public void testItStopsAtSouthernBoundary() throws Exception {
+        int horizontalBoundary = 5;
+        int verticalBoundary = 5;
+        Rover r = new Rover(horizontalBoundary, verticalBoundary);
+        r.turnRight();
+        r.turnRight();
+        exception.expect(Exception.class);
+        r.move();
     }
 
 }

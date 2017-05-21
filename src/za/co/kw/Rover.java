@@ -6,10 +6,17 @@ package za.co.kw;
 public class Rover
 {
     int orientationIndex = 0;
-
     CardinalPoint[] orientations = {CardinalPoint.NORTH, CardinalPoint.EAST, CardinalPoint.SOUTH, CardinalPoint.WEST};
     int horizontalPosition = 0;
     int verticalPosition = 0;
+    int horizontalBoundary = 0;
+    int verticalBoundary = 0;
+
+    public Rover(int horizontalBoundary, int verticalBoundary)
+    {
+        this.horizontalBoundary = horizontalBoundary;
+        this.verticalBoundary = verticalBoundary;
+    }
 
     public char getDirection()
     {
