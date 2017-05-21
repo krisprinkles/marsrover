@@ -21,19 +21,9 @@ public class Rover
     }
 
 
+    // Traversing orientations anti-clockwise
     public void turnLeft()
     {
-        if (orientationIndex == 0)
-        {
-            orientationIndex = 3;
-        } else if(orientationIndex == 3) {
-            orientationIndex = 2;
-        } else if (orientationIndex == 2)
-        {
-            orientationIndex = 1;
-        } else if(orientationIndex == 1)
-        {
-            orientationIndex = 0;
-        }
+        orientationIndex = (orientationIndex + 3) % 4;
     }
 }
